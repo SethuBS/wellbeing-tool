@@ -20,20 +20,21 @@ An IDE such as IntelliJ IDEA or Eclipse (optional)
 ## Installation
 
 1. ***Clone the Repository:***
-bash````
+````bash
    git clone https://github.com/yourusername/wellbeing-tool.git
    cd wellbeing-tool
 ````
+
 3. ***Build the Project:***
-bash````
+````bash
 mvn clean install
 ```` 
 3. ***Run the Application:***
-bash````
+````bash
 mvn spring-boot:run
 ````
 ***Alternatively, you can run the JAR file:***
-bash````
+````bash
    java -jar target/wellbeing-tool-0.0.1-SNAPSHOT.jar
 ````
 6. ***Access the Application:***
