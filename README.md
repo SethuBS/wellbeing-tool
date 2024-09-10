@@ -38,5 +38,6 @@ mvn spring-boot:run
    java -jar target/wellbeing-tool-0.0.1-SNAPSHOT.jar
 ````
 4. ***Access the Application:***
+   
    Open your browser and go to `http://localhost:8080.`
    
