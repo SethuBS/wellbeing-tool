@@ -10,5 +10,5 @@ public interface EmployeeService {
 
     List<EmployeeDTO> getAllEmployees();
 
-    EmployeeDTO getEmployeeById(Long employeeId);
+    EmployeeDTO getEmployeeById(Long employeeId) throws EmployeeFoundException;
 }

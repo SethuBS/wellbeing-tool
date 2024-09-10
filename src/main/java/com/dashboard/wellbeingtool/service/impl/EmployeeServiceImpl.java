@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -32,11 +33,15 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public List<EmployeeDTO> getAllEmployees() {
-        return List.of();
+        return employeeRepository.findAll().stream()
+                .map(Mapper::dtoMap)
+                .collect(Collectors.toList());
     }
 
     @Override
-    public EmployeeDTO getEmployeeById(Long employeeId) {
-        return null;
+    public EmployeeDTO getEmployeeById(Long employeeId) throws EmployeeFoundException {
+        var employee = employeeRepository.findById(employeeId)
+                .orElseThrow(() -> new EmployeeFoundException("Employee with given id: " + employeeId + " does not exist"));
+        return Mapper.dtoMap(employee);
     }
 }
