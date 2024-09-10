@@ -25,7 +25,7 @@ An IDE such as IntelliJ IDEA or Eclipse (optional)
    cd wellbeing-tool
 ````
 
-3. ***Build the Project:***
+2. ***Build the Project:***
 ````bash
 mvn clean install
 ```` 
@@ -37,5 +37,6 @@ mvn spring-boot:run
 ````bash
    java -jar target/wellbeing-tool-0.0.1-SNAPSHOT.jar
 ````
-6. ***Access the Application:***
+4. ***Access the Application:***
+   Open your browser and go to `http://localhost:8080.`
    
