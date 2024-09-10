@@ -19,10 +19,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public EmployeeDTO saveEmployee(EmployeeDTO employeeDTO) throws EmployeeFoundException {
-        var existingEmployee = employeeRepository.findByEmail(employeeDTO.getEmail());
-
-        if (existingEmployee != null)
-            throw new EmployeeFoundException("Employee with given email: " + employeeDTO.getEmail() + "already exists in the system");
+        employeeRepository.findByEmail(employeeDTO.getEmail())
+                .orElseThrow(() -> new EmployeeFoundException("Employee with given email: " + employeeDTO.getEmail() + "already exists in the system"));
 
         var newEmployee = Mapper.entityMap(employeeDTO);
 
