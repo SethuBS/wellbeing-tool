@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("employees")
+@RequestMapping("/api/employees")
 public class EmployeeController {
 
     @Autowired
@@ -22,7 +22,7 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public ResponseEntity<EmployeeDTO> saveEmployee(EmployeeDTO employeeDTO) throws EmployeeFoundException {
+    public ResponseEntity<EmployeeDTO> saveEmployee(@RequestBody EmployeeDTO employeeDTO) throws EmployeeFoundException {
         return ResponseEntity.ok(employeeService.saveEmployee(employeeDTO));
     }
 
