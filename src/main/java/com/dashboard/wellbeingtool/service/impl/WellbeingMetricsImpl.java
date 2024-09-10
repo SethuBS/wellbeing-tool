@@ -17,6 +17,6 @@ public class WellbeingMetricsImpl implements WellbeingMetricsService {
     public WellbeingMetricsDTO saveWellbeingMetrics(WellbeingMetricsDTO newWellbeingMetricsDTO) {
         var wellbeingMetrics = Mapper.toEntity(newWellbeingMetricsDTO);
         var savedWellbeingMetrics = wellbeingMetricsRepository.save(wellbeingMetrics);
-        return Mapper.toDTO(savedWellbeingMetrics);
+        return Mapper.dtoMap(savedWellbeingMetrics);
     }
 }

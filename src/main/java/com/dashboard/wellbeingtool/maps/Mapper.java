@@ -64,41 +64,41 @@ public class Mapper {
                 .build();
     }
 
-    public static WellbeingMetrics toEntity(WellbeingMetricsDTO dto) {
-        if (dto == null) {
+    public static WellbeingMetrics toEntity(WellbeingMetricsDTO wellbeingMetricsDTO) {
+        if (wellbeingMetricsDTO == null) {
             return null;
         }
 
-        List<Employee> employees = dto.getEmployeeDTOs().stream()
+        List<Employee> employees = wellbeingMetricsDTO.getEmployeeDTOs().stream()
                 .map(Mapper::entityMap)
                 .collect(Collectors.toList());
 
         return WellbeingMetrics.builder()
-                .id(dto.getId())
+                .id(wellbeingMetricsDTO.getId())
                 .employees(employees)
-                .stressLevel(dto.getStressLevel())
-                .sleepHours(dto.getSleepHours())
-                .physicalActivity(dto.getPhysicalActivity())
-                .createdAt(dto.getCreatedAt())
+                .stressLevel(wellbeingMetricsDTO.getStressLevel())
+                .sleepHours(wellbeingMetricsDTO.getSleepHours())
+                .physicalActivity(wellbeingMetricsDTO.getPhysicalActivity())
+                .createdAt(wellbeingMetricsDTO.getCreatedAt())
                 .build();
     }
 
-    public static WellbeingMetricsDTO toDTO(WellbeingMetrics entity) {
-        if (entity == null) {
+    public static WellbeingMetricsDTO dtoMap(WellbeingMetrics wellbeingMetrics) {
+        if (wellbeingMetrics == null) {
             return null;
         }
 
-        List<EmployeeDTO> employeeDTOs = entity.getEmployees().stream()
+        List<EmployeeDTO> employeeDTOs = wellbeingMetrics.getEmployees().stream()
                 .map(Mapper::dtoMap)
                 .collect(Collectors.toList());
 
         return WellbeingMetricsDTO.builder()
-                .id(entity.getId())
+                .id(wellbeingMetrics.getId())
                 .employeeDTOs(employeeDTOs)
-                .stressLevel(entity.getStressLevel())
-                .sleepHours(entity.getSleepHours())
-                .physicalActivity(entity.getPhysicalActivity())
-                .createdAt(entity.getCreatedAt())
+                .stressLevel(wellbeingMetrics.getStressLevel())
+                .sleepHours(wellbeingMetrics.getSleepHours())
+                .physicalActivity(wellbeingMetrics.getPhysicalActivity())
+                .createdAt(wellbeingMetrics.getCreatedAt())
                 .build();
     }
 }
